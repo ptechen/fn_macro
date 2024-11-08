@@ -1,4 +1,20 @@
 #[macro_use]
-pub mod map;
+mod map;
 #[macro_use]
-pub mod async_run;
+mod async_run;
+
+#[macro_use]
+mod if_else;
+#[macro_use]
+mod if_unwrap_or_default;
+
+#[macro_use]
+mod if_ok_or_default;
+
+#[macro_use]
+mod if_panic;
+
+pub mod prelude {
+    pub use crate::{if_else, if_unwrap_or_default, if_ok_or_default, if_panic,
+                    async_fn, trace_async_fn, hashmap, hashset, btreemap, btreeset};
+}
