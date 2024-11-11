@@ -4,6 +4,7 @@ macro_rules! if_unwrap_or_default {
         if let Some(value) = $value {
             value
         } else {
+            #[cfg(feature = "tracing")]
             tracing::error!("value is unwrap");
             Default::default()
         }
@@ -12,6 +13,7 @@ macro_rules! if_unwrap_or_default {
         if let Some(value) = $value {
             value
         } else {
+            #[cfg(feature = "tracing")]
             tracing::error!("value is unwrap");
             $default
         }

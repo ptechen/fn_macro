@@ -4,6 +4,7 @@ macro_rules! if_ok_or_default {
         if let Ok(value) = $value {
             value
         } else {
+            #[cfg(feature = "tracing")]
             tracing::error!("value is error");
             Default::default()
         }
@@ -12,6 +13,7 @@ macro_rules! if_ok_or_default {
         if let Ok(value) = $value {
             value
         } else {
+            #[cfg(feature = "tracing")]
             tracing::error!("value is error");
             $default
         }
